@@ -5,8 +5,9 @@ interface ButtonProps {
     size : "sm" | "md" | "lg";
     text : String;
     startIcon? : ReactElement;
-    endIcon? : ReactElement;
+    
     onClick? : () => void;
+    
  
 }
 const sizeStyles = {
@@ -23,8 +24,8 @@ const defaultStyles = "rounded-md px-4 py-2 flex font-normal items-center"
 
 
 
-export const Button = ({variant,size,text,startIcon,endIcon,onClick}: ButtonProps) => {
-    return <button onClick ={onClick} className={`${variantStyles[variant]} ${defaultStyles} ${sizeStyles[size]} v`}>
+export const Button = ({variant,size,text,startIcon,onClick}: ButtonProps) => {
+    return <button onClick ={onClick} className={`${variantStyles[variant]} ${defaultStyles} ${sizeStyles[size]} w-full flex justify-center items-center `}>
 
         
         {startIcon ? <div className="pr-2">{startIcon}</div>: null}
