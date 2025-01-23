@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom"
 
 
 export function Signin(){
-    const usernameref = useRef<HTMLInputElement>()
-    const passwordref = useRef<HTMLInputElement>()
+    const usernameref = useRef<HTMLInputElement>(null)
+    const passwordref = useRef<HTMLInputElement>(null)
     const navigate = useNavigate()
     async function signin(){
         const username = usernameref.current?.value;
@@ -17,7 +17,7 @@ export function Signin(){
             username : username,
             password :password
         })
-        const jwt = response.data.json;
+        const jwt = response.data.token;
         localStorage.setItem("token",jwt)
         navigate("/dashboard")
 
@@ -33,7 +33,7 @@ export function Signin(){
             <Input reference = {usernameref}placeholder ="Username"/>
             <Input reference = {passwordref}placeholder ="Password"/>
             <div className="flex justify-center pt-4 w-full">
-            <Button onClick = {signin} variant = "primary" text = "SignIn" size = "md"/>
+            <Button onClick = {signin} variant = "primary" text = "Sign" size = "md"/>
             </div>
 
 
